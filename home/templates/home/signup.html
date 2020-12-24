@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+
+{% block content%}
+<div id="signup" class="col s12">
+    <form action="/login" method="post">
+        {% csrf_token %}
+        <div class="row">
+            <div class="input-field col s8 offset-s2">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="icon_register_username" type="text" class="validate" required name="username" minlength="4"> 
+                <label for="icon_register_username">Username</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s8 offset-s2">
+                <i class="material-icons prefix">vpn_key</i>
+                <input id="icon_register_password" type="password" class="validate" required name="password" minlength="8">
+                <label for="icon_register_password">Password</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s8 offset-s2">
+                <i class="material-icons prefix">vpn_key</i>
+                <input id="icon_register_confirm_password" type="password" class="validate" required name="confirmPassword">
+                <label for="icon_register_confirm_password">Confirm Password</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s8 offset-s2">
+                <i class="material-icons prefix">email</i>
+                <input id="icon_register_email" type="email" class="validate" required name="email" >
+                <label for="icon_register_email">Email Address</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s8 offset-s2">
+                <i class="material-icons prefix">email</i>
+                <input id="icon_register_confirm_email" type="email" class="validate" required name="confirmEmail">
+                <label for="icon_register_confirm_email">Confirm Email Address</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6 offset-s3 center-align">
+                <input type="hidden" value="register" name="action">
+                <button class="btn waves-effect waves-light" type="submit">Sign Up
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

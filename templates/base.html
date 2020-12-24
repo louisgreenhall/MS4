@@ -10,14 +10,10 @@ Search for the text "TODO" in this HTML file, to know what changes you should ma
 
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="../../dist/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
-    <link href="../home/static/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="/static/style.css" type="text/css" rel="stylesheet" media="screen,projection">
 
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 </head>
 
@@ -30,17 +26,18 @@ Search for the text "TODO" in this HTML file, to know what changes you should ma
         </div>
     </nav>
     <div class="section no-pad-bot" id="index-banner">
-        <div class="container">
+        <div class="container-fluid">
         </div>
     </div>
     <div class="container">
-
+        {% block content%}
+        {% endblock %}
     </div>
 
 
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="../../bin/materialize.js"></script>
-    <script src="js/init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- <script src="js/init.js"></script> -->
 </body>
 
 </html>

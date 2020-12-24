@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <label for="">Hand drawn</label>
+        <input type="radio">
+        <label for="">Digital</label>
+        <input type="radio">
+        <label for="">Colour</label>
+        <input type="radio">
+        <label for="">Monochrome</label>
+        <input type="radio">
+        <label for="">Canvas</label>
+        <input type="radio">
+        <label for="">Framed</label>
+        <input type="radio">
+        <label for="">Without</label>
+        <input type="radio">
+        <label for="">Original files included</label> 
+        <input type="radio">
+        <label for="">Sketches</label>
+        <input type="radio">
+
+    </form>
+</div>
+
+{% endblock %}
