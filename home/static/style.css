@@ -6,3 +6,12 @@ body * {
     width: 65%;
     margin: auto;
 }
+
+/* Request form styling */
+
+.drawType h4, .colour h4, .backing h4, .files h4, .submit-button {
+    margin: 3rem auto 0 auto;
+}
+
+
+/* end */

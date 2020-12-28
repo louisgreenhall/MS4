@@ -4,25 +4,117 @@
 <div class="row">
     <form action="" method="POST">
         {% csrf_token %}
-        <label for="">Hand drawn</label>
-        <input type="radio">
-        <label for="">Digital</label>
-        <input type="radio">
-        <label for="">Colour</label>
-        <input type="radio">
-        <label for="">Monochrome</label>
-        <input type="radio">
-        <label for="">Canvas</label>
-        <input type="radio">
-        <label for="">Framed</label>
-        <input type="radio">
-        <label for="">Without</label>
-        <input type="radio">
-        <label for="">Original files included</label> 
-        <input type="radio">
-        <label for="">Sketches</label>
-        <input type="radio">
+        <div class="col s4 offset-s5">
+            <div class="drawType">
+                <h4>Draw Type</h4>
 
+                <div class="row">
+                    <div class="input-field col s4">
+                        <label>
+                            <input name="drawType" type="radio">
+                            <span>Hand Drawn</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s4">
+                        <label>
+                            <input name="drawType" type="radio">
+                            <span>Digital</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="colour">
+                <h4>Colour</h4>
+
+                <div class="row">
+                    <div class="input-field col s4">
+                        <label>
+                            <input name="colour" type="radio">
+                            <span>Colour</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s4">
+                        <label>
+                            <input name="colour" type="radio">
+                            <span>Monochrome</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="backing">
+                <h4>Backing</h4>
+
+                <div class="row">
+                    <div class="input-field col s4">
+                        <label>
+                            <input name="backing" type="radio">
+                            <span>Canvas</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s4">
+                        <label>
+                            <input name="backing" type="radio">
+                            <span>Framed</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s4">
+                        <label>
+                            <input name="backing" type="radio">
+                            <span>Without</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="files">
+                <h4>Files</h4>
+
+                <div class="row">
+                    <div class="input-field col s4">
+                        <label>
+                            <input name="files" type="radio">
+                            <span>Original Files Included</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s4">
+                        <label>
+                            <input name="files" type="radio">
+                            <span>Sketches</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s4">
+                        <label>
+                            <input names="files" type="radio">
+                            <span>Without</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <button class="black btn waves-effect waves-light submit-button" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+            </button>
+        </div>
     </form>
 </div>
 
