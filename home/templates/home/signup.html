@@ -3,12 +3,12 @@
 
 {% block content%}
 <div id="signup" class="col s12">
-    <form action="/login" method="post">
+    <form action="/signup" method="post">
         {% csrf_token %}
         <div class="row">
             <div class="input-field col s8 offset-s2">
                 <i class="material-icons prefix">account_circle</i>
-                <input id="icon_register_username" type="text" class="validate" required name="username" minlength="4"> 
+                <input id="icon_register_username" type="text" class="validate" required name="username" minlength="4" value='{{ username }}'> 
                 <label for="icon_register_username">Username</label>
             </div>
         </div>
@@ -22,24 +22,47 @@
         <div class="row">
             <div class="input-field col s8 offset-s2">
                 <i class="material-icons prefix">vpn_key</i>
-                <input id="icon_register_confirm_password" type="password" class="validate" required name="confirmPassword">
+                <input id="icon_register_confirm_password" type="password" class="validate" required name="confirm_password">
                 <label for="icon_register_confirm_password">Confirm Password</label>
+                {% if 'password_error' in errors %}
+                <span class="helper-text" data-error="wrong" data-success="right">Passwords must match</span>
+                {% endif %}
             </div>
         </div>
+     
+
         <div class="row">
             <div class="input-field col s8 offset-s2">
                 <i class="material-icons prefix">email</i>
-                <input id="icon_register_email" type="email" class="validate" required name="email" >
+                <input id="icon_register_email" type="email" class="validate" required name="email" value='{{ email }}'>
                 <label for="icon_register_email">Email Address</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s8 offset-s2">
                 <i class="material-icons prefix">email</i>
-                <input id="icon_register_confirm_email" type="email" class="validate" required name="confirmEmail">
+                <input id="icon_register_confirm_email" type="email" class="validate" required name="confirm_email" value='{{ confirm_email }}'>
                 <label for="icon_register_confirm_email">Confirm Email Address</label>
+                {% if 'email_error' in errors %}
+                <span class="helper-text" data-error="wrong" data-success="right">Email addresses must match</span>
+                {% endif %}
             </div>
         </div>
+
+        {% if message  %}
+            {% if success == True %}
+            <div class="card blue-grey darken-1 success">
+            {% endif %}
+            {% if success == False %}
+            <div class="card blue-grey darken-1 error">
+            {% endif %}
+                <div class="card-content white-text">
+                    <p>{{message}}</p>
+                </div>
+            </div>
+        {% endif %}
+        
+
         <div class="row">
             <div class="input-field col s6 offset-s3 center-align">
                 <input type="hidden" value="register" name="action">
