@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Requests</h2>
+{% if requests.count %}
+<ul class="collection">
+    {% for req in requests %}
+
+    <li class="collection-item ">
+        <div class="row">
+            <div class="col m8">
+                <span class="title">{{ req.title }}</span>
+                <p>
+                    {{req.description}}
+                </p>
+            </div>
+            <div class="col m3">
+                {% include "home/status.html" %}
+            </div>
+            <div class="col m1">
+                <a href='/requests/{{req.id}}'>View</a></span>
+            </div>
+        </div>
+    </li>
+
+
+    {% endfor %}
+</ul>
+{% else %}
+You have no requests
+{% endif %}
+
+
+
+{% endblock %}

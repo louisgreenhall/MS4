@@ -32,6 +32,10 @@ def request(request):
     else:
         return render(request, 'home/requestform.html')
 
+def requests_mine(request):
+    requests = Request.objects.filter(author=request.user)
+    return render(request, 'home/requests.html', {'requests': requests})
+
 def signup(request):
     if request.method == 'POST':
         print(request)
