@@ -2,111 +2,139 @@
 
 {% block content %}
 <div class="row">
-    <form action="" method="POST">
+    <form action="{% url 'request' %}" method="POST">
         {% csrf_token %}
         <div class="col s4 offset-s5">
-            <div class="drawType">
-                <h4>Draw Type</h4>
-
-                <div class="row">
-                    <div class="input-field col s4">
-                        <label>
-                            <input name="drawType" type="radio">
-                            <span>Hand Drawn</span>
-                        </label>
-                    </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="first_name" type="text" name="title" class="validate">
+                    <label for="first_name">Title</label>
                 </div>
+            </div>
 
-                <div class="row">
-                    <div class="input-field col s4">
-                        <label>
-                            <input name="drawType" type="radio">
-                            <span>Digital</span>
-                        </label>
+            <div class="row">
+
+                <div class="input-field col s12">
+                    <textarea id="textarea1" class="materialize-textarea" name="description"></textarea>
+                    <label for="textarea1">Description</label>
+                </div>
+            </div>
+
+
+            <div class="row">
+
+                <div class="drawType">
+                    <h4>Draw Type</h4>
+
+                    <div class="row">
+                        <div class="input-field col s4">
+                            <label>
+                                <input name="draw_type" type="radio" value="drawn">
+                                <span>Hand Drawn</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s4">
+                            <label>
+                                <input name="draw_type" type="radio" value="digital">
+                                <span>Digital</span>
+                            </label>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="colour">
-                <h4>Colour</h4>
+            <div class="row">
 
-                <div class="row">
-                    <div class="input-field col s4">
-                        <label>
-                            <input name="colour" type="radio">
-                            <span>Colour</span>
-                        </label>
+                <div class="colour">
+                    <h4>Colour</h4>
+
+                    <div class="row">
+                        <div class="input-field col s4">
+                            <label>
+                                <input name="colour" type="radio" value="colour">
+                                <span>Colour</span>
+                            </label>
+                        </div>
                     </div>
-                </div>
 
-                <div class="row">
-                    <div class="input-field col s4">
-                        <label>
-                            <input name="colour" type="radio">
-                            <span>Monochrome</span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-
-            <div class="backing">
-                <h4>Backing</h4>
-
-                <div class="row">
-                    <div class="input-field col s4">
-                        <label>
-                            <input name="backing" type="radio">
-                            <span>Canvas</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="input-field col s4">
-                        <label>
-                            <input name="backing" type="radio">
-                            <span>Framed</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="input-field col s4">
-                        <label>
-                            <input name="backing" type="radio">
-                            <span>Without</span>
-                        </label>
+                    <div class="row">
+                        <div class="input-field col s4">
+                            <label>
+                                <input name="colour" type="radio" value="monochrome">
+                                <span>Monochrome</span>
+                            </label>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="files">
-                <h4>Files</h4>
+            <div class="row">
 
-                <div class="row">
-                    <div class="input-field col s4">
-                        <label>
-                            <input name="files" type="radio">
-                            <span>Original Files Included</span>
-                        </label>
+                <div class="backing">
+                    <h4>Backing</h4>
+
+                    <div class="row">
+                        <div class="input-field col s4">
+                            <label>
+                                <input name="backing" type="radio" value="canvas">
+                                <span>Canvas</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s4">
+                            <label>
+                                <input name="backing" type="radio" value="framed">
+                                <span>Framed</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s4">
+                            <label>
+                                <input name="backing" type="radio" value="without">
+                                <span>Without</span>
+                            </label>
+                        </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="row">
-                    <div class="input-field col s4">
-                        <label>
-                            <input name="files" type="radio">
-                            <span>Sketches</span>
-                        </label>
+            <div class="row">
+
+                <div class="files">
+                    <h4>Files</h4>
+
+                    <div class="row">
+                        <div class="input-field col s4">
+                            <label>
+                                <input name="files" type="radio" value="included">
+                                <span>Original Files Included</span>
+                            </label>
+                        </div>
                     </div>
-                </div>
 
-                <div class="row">
-                    <div class="input-field col s4">
-                        <label>
-                            <input names="files" type="radio">
-                            <span>Without</span>
-                        </label>
+                    <div class="row">
+                        <div class="input-field col s4">
+                            <label>
+                                <input name="files" type="radio" value="sketches">
+                                <span>Sketches</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s4">
+                            <label>
+                                <input name="files" type="radio" value="without">
+                                <span>Without</span>
+                            </label>
+                        </div>
                     </div>
                 </div>
             </div>
