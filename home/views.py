@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.http import JsonResponse
@@ -6,6 +6,7 @@ from rest_framework import serializers, status
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.db import IntegrityError
+from home.models import Request
 
 # Create your views here.
 
@@ -16,7 +17,20 @@ def login(request):
     return render(request, 'home/login.html', {'user':'test'})
 
 def request(request):
-    return render(request, 'home/requestform.html')
+    if request.method == 'POST':
+        req = Request()
+        req.title =  request.POST.get('title')
+        req.description =  request.POST.get('description')
+        req.draw_type = request.POST.get('draw_type')
+        req.colour = request.POST.get('colour')
+        req.backing = request.POST.get('backing')
+        req.files = request.POST.get('files')
+        req.author = request.user
+        req.status = 'Awaiting Deposit'
+        req.save()
+        return redirect(req)
+    else:
+        return render(request, 'home/requestform.html')
 
 def signup(request):
     if request.method == 'POST':
@@ -98,21 +112,3 @@ def signup(request):
             'success': False,
             'message': ''
         })
-
-@api_view(['POST'])
-def post_login(request):
-    try: 
-        user = authenticate(username=request.data['username'], password=request.data['password'])
-        if user is not None:
-            # The user exists and has authenticated properly
-            u = User.objects.get(username='lgree')
-            print(u.is_superuser)
-            return JsonResponse({'success': True},safe=False)
-        else:
-            # Username or password provided was incorrect, return an unauthorised error
-            return JsonResponse({'success': False}, status=status.HTTP_401_UNAUTHORIZED) 
-    # Something else went wrong, return an unauthorised error
-    except: 
-        return JsonResponse({'success': False}, status=status.HTTP_401_UNAUTHORIZED) 
-
-
