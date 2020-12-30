@@ -1,6 +1,3 @@
-<!-- Edited version of: http://materializecss.com/templates/starter-template/preview.html
-Search for the text "TODO" in this HTML file, to know what changes you should make when you take this project off of Code Pen to run elsewhere.
--->
 <html>
 
 <head>
@@ -10,16 +7,17 @@ Search for the text "TODO" in this HTML file, to know what changes you should ma
 
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="/static/style.css" type="text/css" rel="stylesheet" media="screen,projection">
 
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="/static/style.css" type="text/css" rel="stylesheet" media="screen,projection">
+
 
 </head>
 
 <body>
     <nav class="transparent" role="navigation">
-        <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
+        <div class="nav-wrapper container">
             {% include 'includes/desktop-nav.html' %}
             {% include 'includes/mobile-nav.html' %}
             
@@ -37,7 +35,10 @@ Search for the text "TODO" in this HTML file, to know what changes you should ma
 
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <!-- <script src="js/init.js"></script> -->
+
+    {% block custom_javascript %}
+    {% endblock %}
+    <script src="/static/init.js"></script>
 </body>
 
 </html>
