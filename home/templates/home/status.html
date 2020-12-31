@@ -1,11 +1,7 @@
-{% if req.status == 'Awaiting Deposit' or req.status == 'Declined' or req.status == 'Awaiting Payment' %}
+
+{% if req.status == 'Declined' or req.status == 'Awaiting Payment' or req.status == "Cancelled" %}
 <span class="status status_error">{{ req.status }}</span>
 {% endif %}
-
-{% if req.status == 'Accepted' or req.status == 'Deposit Recieved,' or req.status == 'In Progress' %}
+{% if req.status == 'Submitted' or  req.status == 'Accepted' or req.status == 'Deposit Received,' or req.status == 'In Progress' %}
 <span class="status status_warning">{{ req.status }}</span>
-{% endif %}
-
-{% if req.status == 'Completed' or req.status == 'Paid' %}
-<span class="status status_success">{{ req.status }}</span>
 {% endif %}

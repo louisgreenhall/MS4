@@ -7,7 +7,8 @@ from django.contrib.auth.views import LoginView, LogoutView, PasswordChangeView,
     PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
 
 urlpatterns = [
-    path('checkout', views.checkout, name='checkout'),
-    path('payment', views.payment, name='payment')
+    path('requests/<int:request_id>/checkout/deposit', views.checkout_deposit, name='checkout_deposit'),
+    path('requests/<int:request_id>/checkout/final', views.checkout_final, name='checkout_final'),
+    # path('payment', views.payment, name='payment')
     
 ]

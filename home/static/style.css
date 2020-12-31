@@ -7,7 +7,7 @@ nav * {
     margin: auto;
 }
 
-/* Request form styling */
+/* Request styling */
 
 .drawType h4, .colour h4, .backing h4, .files h4, .submit-button {
     margin: 3rem auto 0 auto;
@@ -44,4 +44,10 @@ nav * {
     color: green;
     font-weight: bold;
 }
+
+
+.decline {
+    background: red;
+}
+
 /* end */

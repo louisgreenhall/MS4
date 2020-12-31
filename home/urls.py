@@ -16,5 +16,6 @@ urlpatterns = [
     path('requests/all', views.requests_all, name='requests_all'),
 
     path('requests/<int:request_id>/', views.request_individual, name='request_individual'),
-    path('requests/<int:request_id>/add_comment', views.request_individual, name="submit_comment")
+    path('requests/<int:request_id>/add_comment', views.request_individual, name="submit_comment"),
+    path('requests/<int:request_id>/update-status/<str:status>', views.update_request_status, name='update_request_status'),
 ]

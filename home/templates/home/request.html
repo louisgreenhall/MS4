@@ -2,6 +2,48 @@
 
 {% block content %}
 
+
+{% if user.is_authenticated and user.is_superuser %}
+<div class="row">
+    {% if req.status == "Submitted" %}
+    <div class="col m4">
+        <a class="btn" href="/requests/{{req.id}}/update-status/AwaitingDeposit">Accept Job</a>
+        <a class="btn decline" href="/requests/{{req.id}}/update-status/Declined" >Decline Job</a>
+    </div>
+    {% endif %}
+    
+    {% if req.status == "Deposit Received" %}
+    <div class="col m4">
+        <a class="btn" href="/requests/{{req.id}}/update-status/InProgress">Move Job to In Progress</a>
+    </div>
+    {% endif %}
+    {% if req.status == "In Progress" %}
+    <div class="col m4">
+        <a class="btn" href="/requests/{{req.id}}/update-status/AwaitingPayment">Complete Job</a>
+    </div>
+    {% endif %}
+</div>
+{% elif user.is_authenticated %}
+<div class="row">
+    {% if req.status == "Submitted" or req.status == "In Progress" %}
+    <div class="col m4">
+        <a class="btn" href="/requests/{{req.id}}/update-status/Cancelled">Cancel Request</a>
+    </div>
+    {% endif %}
+    {% if req.status == "Awaiting Deposit" %}
+    <div class="col m4">
+        <a class="btn" href="/requests/{{req.id}}/checkout/deposit">Pay Deposit</a>
+    </div>
+    {% endif %}
+    {% if req.status == "Awaiting Payment" %}
+    <div class="col m4">
+        <a class="btn" href="/requests/{{req.id}}/checkout/final">Pay Remaining Balance</a>
+    </div>
+    {% endif %}
+</div>
+{% endif %}
+
+
 <div class="row">
 
     <div class="col m12">
@@ -35,7 +77,7 @@
                 <td>{{req.draw_type}}</td>
             </tr>
             <tr>
-                <td>Files Inlcuded</td>
+                <td>Files Included</td>
                 <td>{{req.files}}</td>
             </tr>
             <tr>
