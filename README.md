@@ -4,18 +4,10 @@ Graphically graphic is a hub for all the nedds of a graphic designer looking to 
 
  
 ## UX
- 
-Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
 
-In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
-- As a user type, I want to perform an action, so that I can achieve a goal.
+The website is built as a platform for people to request graphic design work from an expert, by specifying their requirements, their preference of print medium, and output format. It is straight forward for users to request their preferences and also to discuss the options with the creator to get what they need out of a request.
 
-This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included as a pdf file in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
-
-**************************
     * As a potential client, I want to be able to log in so that my interactions with the site can be saved for future reference
-
-    * As a potential client, I want to be able to see the previous work of the designer so that I may decide if they are right for me
 
     * As a potential client, I want to be able to make a request to the designer to complete work for me
 
@@ -23,12 +15,9 @@ This section is also where you would share links to any wireframes, mockups, dia
 
     * As a potential client, I want to be able to see the progress made on my requests so that I can be reassured of it's completion
 
-
     * As an admin, I want to be the only one able to see requests made to me by potential clients so that I may accept or decline them.
 
     * As an admin, I want to be able to easily contact potential clients so that I may discuss their requests with them.
-
-    * As an admin I want to be able to add completed work to my site with feedback so that future viewers may be more interested in commissioning my work.
 
 
 ## Features
@@ -40,94 +29,81 @@ In this section, you should go over the different parts of your project, and des
 - Payment system - allows users to put down a deposit for the work they would like to be completed, once a fee has been agreed and allows users to pay for completed work.
 
 - Form to submit requests, with calculated quote and time frame 
-- Gallery of previous work with details included incl - timeframe, cost, spec details and feedback, image, client(anon or listed).
+
 - As Admin, view current requests in priority order (With status = Accepted, Declined, awaiting deposit, deposit recieved, in progress, completed, awaiting payment, paid)
+
 - Chat with client concerning work requested - linked to work request
+
 - As client - see requests past, current.
  
 ### Existing Features
-- Feature 1 - allows users X to achieve Y, by having them fill out Z
 
 - Login system, as admin or as user - allows both users and admins to log in to the site and see requests you've created and your quote and as admin allows you to see all requests made to you and update their progress
 
 - Payment system - allows users to put down a deposit for the work they would like to be completed, once a fee has been agreed and allows users to pay for completed work.
 
+- Request views allow both users and admins to view request they've made or received and communicate and update statuses as they progress
 
-For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
-
-In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
 
 ### Features Left to Implement
-- Another feature idea
+
+- Gallery to hold all existing and future work created by the graphic designer
 
 ## Technologies Used
-
-In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
 
 - [JQuery](https://jquery.com)
     - The project uses **JQuery** to simplify DOM manipulation.
 
+- [Materialize Framework](https://materializecss.com/)
+    - I used **Materialize** to provide responsiveness and structure to my website.
+
+- [Heroku](https://www.heroku.com/)
+	- I used Heroku to deploy and host my live-site
+
+- [Django](https://django.com/)
+    - I used **Django** to serve as the main framework for my website.
+
+- [MySql](https://dev.mysql.com/)
+    - I used **MySQL** to store data relating to my site my website.
+
 
 ## Testing
 
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
-
-Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
-
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
-
-1. Contact form:
-    1. Go to the "Contact Us" page
-    2. Try to submit the empty form and verify that an error message about the required fields appears
-    3. Try to submit the form with an invalid email address and verify that a relevant error message appears
-    4. Try to submit the form with all inputs valid and verify that a success message appears.
-
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
-
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
-
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
-
-
-*******************************
 
     * As a potential client, I want to be able to log in so that my interactions with the site can be saved for future reference
-
-    * As a potential client, I want to be able to see the previous work of the designer so that I may decide if they are right for me
+        Open website, reach login page.
+        click navbar dropdown and select sign up
+        created new user filling in sign up form
+        returned to log in page via navbar
+        filled in details
+        confirmed username was in navbar showing as logged in with new dropdown options
 
     * As a potential client, I want to be able to make a request to the designer to complete work for me
+        Open website, reach login page.
+        Once logging in, see "submit request" option in navigation dropdown
+        Filled in form
+        Got redirected to request view
 
     * As a potential client, I want to be able to know how much a job will cost so that I can judge if I am willing to pay
+        Open website, reach login page.
+        Once logging in, see "submit request" option in navigation dropdown
+        Filled in form
+        Basket on right hand side shows me the price before submitting
 
     * As a potential client, I want to be able to see the progress made on my requests so that I can be reassured of it's completion
-
+        Logging into the site and navigating to "My Requests" from navigation dropdown as a non superuser,
+        I am able to see all of my requests, and if they have changed status, the status will show on the requests/mine page.
 
     * As an admin, I want to be the only one able to see requests made to me by potential clients so that I may accept or decline them.
+        Login as an admin and navigate to the requests/all page. I should be able to see requests from all users/
+        Login as a non admin, and navigate to the requests/all page/ I should be redirected away from the requests/all page, since I am not allowed to see them.
 
     * As an admin, I want to be able to easily contact potential clients so that I may discuss their requests with them.
-
-    * As an admin I want to be able to add completed work to my site with feedback so that future viewers may be more interested in commissioning my work.
+        Once logged in as an admin or a normal user, I can navigate to a request and add comments for the other party to see. There is a comment form,
+        which once submitted will show the most recent comments at the top
 
 ## Deployment
 
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
+I had to follow details in https://devcenter.heroku.com/articles/django-app-configuration, to ensure that the migrations and database details were set up correctly.
 
-In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
-- Different values for environment variables (Heroku Config Vars)?
-- Different configuration files?
-- Separate git branch?
-
-In addition, if it is not obvious, you should also describe how to run your code locally.
-
-
-## Credits
-
-### Content
-- The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
-
-### Media
-- All graphic design work belongs to Sam Jones
-
-### Acknowledgements
-
-- I received inspiration for this project from X
+Once the database details were coorrectly configured, I was able to access my site at https://louis-ms4.herokuapp.com/
