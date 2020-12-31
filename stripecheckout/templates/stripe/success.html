@@ -1,2 +1,10 @@
 {% extends 'base.html' %}
 
+{% block content %}
+
+<h3>Success</h3>
+<p>Thank you for your payment of £{{amount|stringformat:".2f" }}, it has been received successfully</p>
+
+<a href="{{continue_url}}">Continue to request</a>
+
+{% endblock %}

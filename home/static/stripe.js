@@ -2,7 +2,7 @@ var stripe = Stripe('pk_test_51I4TYWGBayL5RWdKaHl2jck7cduUSoymkDiSD7VbFFYJYuKDHY
 
 $('#checkout_deposit').click(() => {
 
-
+            
     stripe
         .redirectToCheckout({
             lineItems: [
@@ -12,7 +12,7 @@ $('#checkout_deposit').click(() => {
                     quantity: 1
                 },
             ],
-            clientReferenceId: "123",
+            clientReferenceId: location.href,
             mode: 'payment',
             successUrl: 'http://localhost:8000/checkout/success?session_id={CHECKOUT_SESSION_ID}',
             cancelUrl: location.href,

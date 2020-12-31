@@ -29,4 +29,13 @@ def success(request):
     session_id = request.GET.get('session_id')
     session = stripe.checkout.Session.retrieve(session_id)
     print(session)
-    return render(request, 'stripe/success.html')
+    if session['amount_total']/100 == 30:
+        return render(request, 'stripe/success.html', {'payment_status': session['payment_status'], 'amount': session['amount_total']/100, 'continue_url': session['client_reference_id'].replace("/deposit", "/deposit_paid")})
+        
+    return render(request, 'stripe/success.html', {'payment_status': session['payment_status'], 'amount': session['amount_total']/100})
+
+def deposit_paid(request, request_id):
+    req = Request.objects.get(id=request_id)
+    req.status = "Deposit Received"
+    req.save()
+    return redirect(req)
