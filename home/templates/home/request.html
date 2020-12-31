@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+
+    <div class="col m12">
+        <table>
+            <tr>
+                <td>Title</td>
+                <td>{{req.title}}</td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td>{{req.description}}</td>
+            </tr>
+            <tr>
+                <td>Requestor</td>
+                <td>{{req.author}}</td>
+            </tr>
+            <tr>
+                <td>Requested On</td>
+                <td>{{req.created_on}}</td>
+            </tr>
+            <tr>
+                <td>Status</td>
+                <td>{{req.status}}</td>
+            </tr>
+            <tr>
+                <td>Colour</td>
+                <td>{{req.colour}}</td>
+            </tr>
+            <tr>
+                <td>Drawing Type</td>
+                <td>{{req.draw_type}}</td>
+            </tr>
+            <tr>
+                <td>Files Inlcuded</td>
+                <td>{{req.files}}</td>
+            </tr>
+            <tr>
+                <td>Backing Type</td>
+                <td>{{req.backing}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col m12">
+        <h4>Discussion</h4>
+
+        <form action="{% url 'submit_comment'  request_id=req.id %}" method="post">
+            <fieldset>
+            {% csrf_token %}
+            <div class="input-field col s12">
+                <textarea id="textarea1" class="materialize-textarea" name="content"></textarea>
+                <label for="textarea1">Textarea</label>
+            </div>
+
+            <button class="btn waves-effect waves-light" type="submit">Add Comment
+                <i class="material-icons right">send</i>
+            </button>
+        </fieldset>
+        </form>
+
+        {% for comment in comments %}
+        <div class="row">
+            <div class="col m12">
+
+                <span class="timestamp">[{{comment.created_on|date:"Y-m-d H:i:s"}}]</span> 
+                <span class="user {% if comment.author == user.username %}current_user{% else %}other_user{% endif %}">{{comment.author}}:</span> {{comment.content}}
+            </div>
+        </div>
+        {% endfor %}
+
+        
+    </div>
+
+</div>
+
+{% endblock %}
