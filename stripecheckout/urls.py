@@ -9,6 +9,7 @@ from django.contrib.auth.views import LoginView, LogoutView, PasswordChangeView,
 urlpatterns = [
     path('requests/<int:request_id>/checkout/deposit', views.checkout_deposit, name='checkout_deposit'),
     path('requests/<int:request_id>/checkout/final', views.checkout_final, name='checkout_final'),
-    # path('payment', views.payment, name='payment')
+    path('checkout/success', views.success, name='checkout_success')
     
 ]
+ 

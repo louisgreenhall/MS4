@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+<h3>Checkout: {{title}}</h3>
+<table>
+    <tr>
+    <th>Item</th>
+    <th>Amount</th>
+    </tr>
+    {% for item in line_items %}
+    <tr>
+    <td>{{ item.name }}</td>
+    <td>£{{ item.amount|stringformat:".2f" }}</td>
+    </tr>
+    {% endfor %}
+    <tr>
+        <th>Total:</th>
+        <td>£{{ total|stringformat:".2f" }}</td>
+    </tr>
+</table>
+
+<button id='checkout_deposit'>Click me if you dare</button>
+
+{% endblock %}
+
+{% block custom_javascript %}
+
+<script src="https://js.stripe.com/v3/"></script>
+<script src="/static/stripe.js"></script>
+
+{% endblock %}
