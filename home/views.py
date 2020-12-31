@@ -6,7 +6,7 @@ from rest_framework import serializers, status
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.db import IntegrityError
-from home.models import Request
+from home.models import Request, Comment
 
 # Create your views here.
 
@@ -30,11 +30,39 @@ def request(request):
         req.save()
         return redirect(req)
     else:
+
         return render(request, 'home/requestform.html')
 
 def requests_mine(request):
     requests = Request.objects.filter(author=request.user)
     return render(request, 'home/requests.html', {'requests': requests})
+
+def requests_all(request):
+    if (request.user.is_superuser):
+        requests = Request.objects.all()
+        return render(request, 'home/requests.html', {'requests': requests})
+    else:
+        return redirect('requests_mine')
+
+def request_individual(request, request_id):
+
+    req = Request.objects.get(id=request_id)
+
+    if request.method == 'POST':
+        comment = Comment()
+        comment.request_id = request_id
+        comment.content = request.POST.get('content')
+        comment.author = request.user
+        comment.save()
+        return redirect(req)
+
+    
+    discussion = []
+    try:
+        discussion = Comment.objects.filter(request_id=request_id)
+    except Comment.DoesNotExist:
+        discussion = []
+    return render(request, 'home/request.html', {'req': req, 'comments': discussion})
 
 def signup(request):
     if request.method == 'POST':

@@ -14,4 +14,34 @@ nav * {
 }
 
 
+.timestamp {
+    color: #999;
+}
+
+.user {
+    font-weight: bold;
+}
+
+.current_user {
+    color: green;
+}
+
+.other_user {
+    color: blue;
+}
+
+.status_error {
+    color: red;
+    font-weight: bold;
+}
+
+.status_warning {
+    color: orange;
+    font-weight: bold;
+}
+
+.status_success {
+    color: green;
+    font-weight: bold;
+}
 /* end */
