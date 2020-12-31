@@ -108,10 +108,10 @@ WSGI_APPLICATION = 'ms4.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ms4',
-        'USER': 'root',
-        'PASSWORD': 'password',
-        'HOST': 'localhost',
+        'NAME': 'fci9a7hjt83w5f32',
+        'USER': 'd9a08z9szuqv573p',
+        'PASSWORD': 'coftmx3dzbw3p520',
+        'HOST': 'n2o93bb1bwmn0zle.chr7pe7iynqr.eu-west-1.rds.amazonaws.com',
         'PORT': '3306'
     }
 }
