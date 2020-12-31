@@ -2,9 +2,10 @@
 
 {% block content %}
 <div class="row">
-    <form action="{% url 'request' %}" method="POST">
-        {% csrf_token %}
-        <div class="col s4 offset-s5">
+    <div class="col m6 ">
+
+        <form action="{% url 'request' %}" method="POST">
+            {% csrf_token %}
             <div class="row">
                 <div class="input-field col s6">
                     <input id="title" type="text" name="title" class="validate">
@@ -27,19 +28,21 @@
                     <h4>Draw Type</h4>
 
                     <div class="row">
-                        <div class="input-field col s4">
+                        <div class="input-field col s12">
                             <label>
-                                <input name="draw_type" type="radio" value="drawn">
-                                <span>Hand Drawn</span>
+                                <input name="draw_type" type="radio" value="hand_drawn" data-additional-time-multiplier="1.5" data-additional-cost="15.00"
+                                    data-line-item="draw_type" checked>
+                                <span>Hand Drawn (+£15.00)</span>
                             </label>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="input-field col s4">
+                        <div class="input-field col s12">
                             <label>
-                                <input name="draw_type" type="radio" value="digital">
-                                <span>Digital</span>
+                                <input name="draw_type" type="radio" value="digital" data-additional-cost="10.00" data-additional-time-multiplier="1.0"
+                                    data-line-item="draw_type">
+                                <span>Digital (+£10.00)</span>
                             </label>
                         </div>
                     </div>
@@ -52,19 +55,21 @@
                     <h4>Colour</h4>
 
                     <div class="row">
-                        <div class="input-field col s4">
+                        <div class="input-field col s12">
                             <label>
-                                <input name="colour" type="radio" value="colour">
-                                <span>Colour</span>
+                                <input name="colour" type="radio" value="colour" data-additional-cost="0.00" data-additional-time-multiplier="1.1"
+                                    data-line-item="colour">
+                                <span>Colour (+£0.00)</span>
                             </label>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="input-field col s4">
+                        <div class="input-field col s12">
                             <label>
-                                <input name="colour" type="radio" value="monochrome">
-                                <span>Monochrome</span>
+                                <input name="colour" type="radio" value="monochrome" data-additional-cost="0.00" data-additional-time-multiplier="1.0"
+                                    data-line-item="colour">
+                                <span>Monochrome (+£0.00)</span>
                             </label>
                         </div>
                     </div>
@@ -77,28 +82,31 @@
                     <h4>Backing</h4>
 
                     <div class="row">
-                        <div class="input-field col s4">
+                        <div class="input-field col s12">
                             <label>
-                                <input name="backing" type="radio" value="canvas">
-                                <span>Canvas</span>
+                                <input name="backing" type="radio" value="canvas" data-additional-cost="5.00" data-additional-time-multiplier="2.0"
+                                    data-line-item="backing">
+                                <span>Canvas (+£5.00)</span>
                             </label>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="input-field col s4">
+                        <div class="input-field col s12">
                             <label>
-                                <input name="backing" type="radio" value="framed">
-                                <span>Framed</span>
+                                <input name="backing" type="radio" value="framed" data-additional-cost="3.00" data-additional-time-multiplier="1.5"
+                                    data-line-item="backing">
+                                <span>Framed (+£3.00)</span>
                             </label>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="input-field col s4">
+                        <div class="input-field col s12">
                             <label>
-                                <input name="backing" type="radio" value="without">
-                                <span>Without</span>
+                                <input name="backing" type="radio" value="without" data-additional-cost="0.00" data-additional-time-multiplier="1.0"
+                                    data-line-item="backing">
+                                <span>Without (£0.00)</span>
                             </label>
                         </div>
                     </div>
@@ -111,39 +119,64 @@
                     <h4>Files</h4>
 
                     <div class="row">
-                        <div class="input-field col s4">
+                        <div class="input-field col s12">
                             <label>
-                                <input name="files" type="radio" value="included">
-                                <span>Original Files Included</span>
+                                <input name="files" type="radio" value="included" data-additional-cost="5.00" data-additional-time-multiplier="1.0"
+                                    data-line-item="files">
+                                <span>Original Files Included (+£5.00)</span>
                             </label>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="input-field col s4">
+                        <div class="input-field col s12">
                             <label>
-                                <input name="files" type="radio" value="sketches">
-                                <span>Sketches</span>
+                                <input name="files" type="radio" value="sketches" data-additional-cost="5.00" data-additional-time-multiplier="1.2"
+                                    data-line-item="files">
+                                <span>Sketches (+£5.00)</span>
                             </label>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="input-field col s4">
+                        <div class="input-field col s12">
                             <label>
-                                <input name="files" type="radio" value="without">
-                                <span>Without</span>
+                                <input name="files" type="radio" value="without" data-additional-cost="0.00" data-additional-time-multiplier="1.0"
+                                    data-line-item="files">
+                                <span>Without (£0.00)</span>
                             </label>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <button class="black btn waves-effect waves-light submit-button" type="submit" name="action">Submit
+           
+        </form>
+    </div>
+
+    <div class="row">
+        <div class="col m6 ">
+            <h3>Basket</h3>
+            <table class="basket">
+                <tbody></tbody>
+            </table>
+
+            <div>
+                <strong>Estimated Time:</strong> <span class='estimated-time'></span> days
+            </div>
+
+            <button class="black btn waves-effect waves-light submit-button" type="submit" id="checkout-button" name="action">Checkout
                 <i class="material-icons right">send</i>
             </button>
         </div>
-    </form>
+    </div>
+
 </div>
+
+{% endblock %}
+
+{% block custom_javascript %}
+<script src="/static/calc.js"></script>
+
 
 {% endblock %}
