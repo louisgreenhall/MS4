@@ -65,6 +65,22 @@ def request_individual(request, request_id):
         discussion = []
     return render(request, 'home/request.html', {'req': req, 'comments': discussion})
 
+
+
+def update_request_status(request, request_id, status): 
+    req = Request.objects.get(id=request_id)
+    mappings = {
+        'AwaitingDeposit': 'Awaiting Deposit',
+        'Declined': 'Declined',
+        'InProgress': 'In Progress',
+        'AwaitingPayment': 'Awaiting Payment',
+        'Cancelled': 'Cancelled'
+
+    }
+    req.status = mappings[status]
+    req.save()
+    return redirect(req)
+
 def signup(request):
     if request.method == 'POST':
         print(request)

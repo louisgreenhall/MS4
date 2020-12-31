@@ -11,7 +11,7 @@
     </tr>
     {% for item in line_items %}
     <tr>
-    <td>{{ item.name }}</td>
+    <td class="name">{{ item.name }}</td>
     <td>£{{ item.amount|stringformat:".2f" }}</td>
     </tr>
     {% endfor %}
@@ -21,7 +21,14 @@
     </tr>
 </table>
 
+{% if type == 'deposit' %}
 <button id='checkout_deposit'>Proceed to checkout</button>
+{% else %}
+<button id='checkout_final'>Proceed to checkout</button>
+
+{% endif %}
+
+
 
 {% endblock %}
 
