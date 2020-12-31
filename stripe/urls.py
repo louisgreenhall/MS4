@@ -8,5 +8,6 @@ from django.contrib.auth.views import LoginView, LogoutView, PasswordChangeView,
 
 urlpatterns = [
     path('checkout', views.checkout, name='checkout'),
+    path('payment', views.payment, name='payment')
     
 ]
