@@ -12,11 +12,14 @@
 </ul>
 
 <ul id="dropdown1" class="dropdown-content">
+    {% if not user.is_superuser %}
     <li><a href="{% url 'requests_mine' %}">Your requests</a></li>
-    <li><a href="{% url 'request' %}">Submit Request</a></li>
-    {% if user.is_superuser %}
+
     
-        View all requests
+    <li><a href="{% url 'request' %}">Submit Request</a></li>
+
+    {% else %}
+        <li><a href="{% url 'requests_all' %}">View all requests</a></li>
     {% endif %}
     <li class="divider"></li>
     <li><a href="{% url 'logout' %}">Log Out</a></li>

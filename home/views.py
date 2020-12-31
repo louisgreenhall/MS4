@@ -30,7 +30,8 @@ def request(request):
         req.save()
         return redirect(req)
     else:
-
+        if request.user.is_superuser:
+            return redirect('home')
         return render(request, 'home/requestform.html')
 
 def requests_mine(request):
@@ -38,7 +39,7 @@ def requests_mine(request):
     return render(request, 'home/requests.html', {'requests': requests})
 
 def requests_all(request):
-    if (request.user.is_superuser):
+    if request.user.is_superuser:
         requests = Request.objects.all()
         return render(request, 'home/requests.html', {'requests': requests})
     else:
