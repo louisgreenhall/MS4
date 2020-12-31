@@ -35,7 +35,7 @@ const mappings = {
 }
 
 $('#checkout_final').click(() => {
-    console.log("we are here biatch")
+    
     let lineItems = [];
     $('.name').each((idx, item) => {
 
